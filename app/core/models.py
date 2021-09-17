@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser,\
 
 # Create your models here.
 
+
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         "Create and saves a new user"
@@ -24,7 +25,8 @@ class UserManager(BaseUserManager):
 
         return user
 
-class User(AbstractBaseUser,PermissionsMixin):
+
+class User(AbstractBaseUser, PermissionsMixin):
     "Custom user model that support using email instead of username"
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
